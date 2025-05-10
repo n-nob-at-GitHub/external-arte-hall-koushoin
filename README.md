@@ -8,7 +8,7 @@ This repository is used for external by arte-hall project.
     > nvm -v
     1.1.12
     ```
-  - [Node.js](https://nodejs.org/docs/latest/api/) (※nvm use 22.4.1 で [C:\Program Files\nodejs] に リンクが生成された).
+  - [Node.js](https://nodejs.org/docs/latest/api/) (※nvm use ～ で [C:\Program Files\nodejs] に リンクが生成された).
     - Windows OS の 32bit環境では, nvm install 20.14.0 32, nvm use 20.14.0 32 のように読み替えること
     ```
     > nvm install 20.14.0
