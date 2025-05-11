@@ -12,7 +12,7 @@ const Top = () => {
     <Grid size={ 4 } key={ index }>
       <Image
         src={ image.src }
-        width={ 1280 }
+        width={ 1281 }
         height={ 850 }
         alt='Top Image'
         style={{ objectFit: "contain" }}
