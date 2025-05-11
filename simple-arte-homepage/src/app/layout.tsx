@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box'
-import Header from '@/components/Header'
+import Contents from '@/components/Contents'
 import Footer from '@/components/Footer'
 
 export default function RootLayout(
@@ -8,10 +8,7 @@ export default function RootLayout(
   return (
     <html lang='ja'>
       <body>
-        <Header />
-        <Box sx={{ minHeight: 'calc(100vh - 48px)' }}>
-          { children }
-        </Box>
+        <Contents />
         <Footer />
       </body>
     </html>

@@ -42,7 +42,7 @@ const a11yProps = (index: number) => {
   };
 }
 
-const Header = () => {
+const Contents = () => {
   const [ tabIndex, setTabIndex ] = React.useState(0);
   const handleTabChange = (event: React.SyntheticEvent, newTabIndex: number) => {
     setTabIndex(newTabIndex);
@@ -89,4 +89,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Contents
