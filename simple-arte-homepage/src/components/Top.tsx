@@ -41,14 +41,14 @@ const Top = () => {
       { itemData.map((item, index) => (
         <ImageListItem key={ index }>
           <img
-            srcSet={`${ item.img }?w=230&fit=crop&auto=format&dpr=2 2x`}
+            srcSet={`${ item.img.src }?w=230&fit=crop&auto=format&dpr=2 2x`}
             src={`${ item.img.src }?w=230&fit=crop&auto=format`}
             alt={ item.title }
-            loading="lazy"
+            loading='lazy'
           />
           <ImageListItemBar
             title={ item.title }
-            position="top"
+            position='top'
           />
         </ImageListItem>
       ))}
