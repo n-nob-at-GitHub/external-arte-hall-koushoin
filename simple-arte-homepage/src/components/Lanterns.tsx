@@ -4,8 +4,8 @@ import {
   Grid,
   Paper,
 } from '@mui/material'
-import image152_1 from "@/images/152-1.png"
-import image152_2 from "@/images/152-2.png"
+import image152_1 from '@/images/152-1.png'
+import image152_2 from '@/images/152-2.png'
 
 const Lanterns = () => {
   const images = [ image152_1, image152_2 ];
@@ -16,7 +16,7 @@ const Lanterns = () => {
         width={ 600 }
         height={ 600 }
         alt='Lantern Image'
-        style={{ objectFit: "contain" }}
+        style={{ objectFit: 'contain' }}
       />
     </Grid>
   )

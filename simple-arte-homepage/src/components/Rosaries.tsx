@@ -4,8 +4,8 @@ import {
   Grid,
   Paper,
 } from '@mui/material'
-import image150 from "@/images/150.png"
-import image151 from "@/images/151.png"
+import image150 from '@/images/150.png'
+import image151 from '@/images/151.png'
 
 const Rosaries = () => {
   const images = [ image150, image151 ];
@@ -16,7 +16,7 @@ const Rosaries = () => {
         width={ 600 }
         height={ 600 }
         alt='Rosary Image'
-        style={{ objectFit: "contain" }}
+        style={{ objectFit: 'contain' }}
       />
     </Grid>
   )

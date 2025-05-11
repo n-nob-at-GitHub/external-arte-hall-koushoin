@@ -4,7 +4,7 @@ import {
   Grid,
   Paper,
 } from '@mui/material'
-import image154 from "@/images/154.png"
+import image154 from '@/images/154.png'
 
 const ChirimenCrafts = () => {
   const images = [ image154 ];
@@ -15,7 +15,7 @@ const ChirimenCrafts = () => {
         width={ 935 }
         height={ 616 }
         alt='Chirimen-Craft Image'
-        style={{ objectFit: "contain" }}
+        style={{ objectFit: 'contain' }}
       />
     </Grid>
   )

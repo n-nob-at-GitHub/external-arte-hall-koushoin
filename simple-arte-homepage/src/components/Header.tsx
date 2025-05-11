@@ -2,53 +2,89 @@
 import React from 'react'
 import {
   Box,
-  IconButton,
-  Link,
+  Tab,
+  Tabs,
 } from '@mui/material'
+import Top from '@/components/Top'
+import BuddhistAltars from '@/components/BuddhistAltars'
+import Bells from '@/components/Bells'
+import Lanterns from '@/components/Lanterns'
+import MemorialFlowers from '@/components/MemorialFlowers'
+import Rosaries from '@/components/Rosaries'
+import ChirimenCrafts from '@/components/ChirimenCrafts'
+import PhotoFrames from '@/components/PhotoFrames'
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+
+const CustomTabPanel = (props: TabPanelProps) => {
+  const { children, value, index, ...other } = props;
+  return (
+    <div
+      role='tabpanel'
+      hidden={ value !== index }
+      id={`simple-tabpanel-${ index }`}
+      aria-labelledby={`simple-tab-${ index }`}
+      { ...other }
+    >
+      { value === index && <Box sx={{ p: 3 }}>{ children }</Box> }
+    </div>
+  );
+}
+
+const a11yProps = (index: number) => {
+  return {
+    id: `simple-tab-${ index }`,
+    'aria-controls': `simple-tabpanel-${ index }`,
+  };
+}
 
 const Header = () => {
-  return(
-    <Box sx={{ display: 'flex', gap: '0.5rem' }}>
-      <IconButton>
-        <Link style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} href={`/`}>
-          トップ
-        </Link>
-      </IconButton>
-      <IconButton>
-        <Link style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} href={`/top/buddhist-altars`}>
-          仏壇
-        </Link>
-      </IconButton>
-      <IconButton>
-        <Link style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} href={`/top/bells`}>
-          御鈴
-        </Link>
-      </IconButton>
-      <IconButton>
-        <Link style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} href={`/top/lanterns`}>
-          提灯
-        </Link>
-      </IconButton>
-      <IconButton>
-        <Link style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} href={`/top/memorial-flowers`}>
-          メモリアルフラワー
-        </Link>
-      </IconButton>
-      <IconButton>
-        <Link style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} href={`/top/rosaries`}>
-          念珠
-        </Link>
-      </IconButton>
-      <IconButton>
-        <Link style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} href={`/top/chirimen-crafts`}>
-          ちりめん細工
-        </Link>
-      </IconButton>
-      <IconButton>
-        <Link style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} href={`/top/photo-frames`}>
-          フォトフレーム
-        </Link>
-      </IconButton>
+  const [ tabIndex, setTabIndex ] = React.useState(0);
+  const handleTabChange = (event: React.SyntheticEvent, newTabIndex: number) => {
+    setTabIndex(newTabIndex);
+  };
+  return (
+    <Box sx={{ width: '100%' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs value={ tabIndex } onChange={ handleTabChange } variant='fullWidth' aria-label='basic tabs example'>
+          <Tab label='トップ' { ...a11yProps(0) } />
+          <Tab label='仏壇' { ...a11yProps(1) } />
+          <Tab label='御鈴' { ...a11yProps(2) } />
+          <Tab label='提灯' { ...a11yProps(3) } />
+          <Tab label='メモリアルフラワー' { ...a11yProps(4) } />
+          <Tab label='念珠' { ...a11yProps(5) } />
+          <Tab label='ちりめん細工' { ...a11yProps(6) } />
+          <Tab label='フォトフレーム' { ...a11yProps(7) } />
+        </Tabs>
+      </Box>
+      <CustomTabPanel value={ tabIndex } index={ 0 }>
+        <Top />
+      </CustomTabPanel>
+      <CustomTabPanel value={ tabIndex } index={ 1 }>
+        <BuddhistAltars />
+      </CustomTabPanel>
+      <CustomTabPanel value={ tabIndex } index={ 2 }>
+        <Bells />
+      </CustomTabPanel>
+      <CustomTabPanel value={ tabIndex } index={ 3 }>
+        <Lanterns />
+      </CustomTabPanel>
+      <CustomTabPanel value={ tabIndex } index={ 4 }>
+        <MemorialFlowers />
+      </CustomTabPanel>
+      <CustomTabPanel value={ tabIndex } index={ 5 }>
+        <Rosaries />
+      </CustomTabPanel>
+      <CustomTabPanel value={ tabIndex } index={ 6 }>
+        <ChirimenCrafts />
+      </CustomTabPanel>
+      <CustomTabPanel value={ tabIndex } index={ 7 }>
+        <PhotoFrames />
+      </CustomTabPanel>
     </Box>
   )
 }

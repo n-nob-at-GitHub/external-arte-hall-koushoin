@@ -4,7 +4,7 @@ import {
   Grid,
   Paper,
 } from '@mui/material'
-import image00 from "@/images/00.png"
+import image00 from '@/images/00.png'
 
 const Top = () => {
   const images = [ image00 ];
@@ -15,7 +15,7 @@ const Top = () => {
         width={ 1281 }
         height={ 850 }
         alt='Top Image'
-        style={{ objectFit: "contain" }}
+        style={{ objectFit: 'contain' }}
       />
     </Grid>
   )
