@@ -1,10 +1,7 @@
-import Box from '@mui/material/Box'
 import Contents from '@/components/Contents'
 import Footer from '@/components/Footer'
 
-export default function RootLayout(
-  { children } : { children: React.ReactNode }
-) {
+export default function RootLayout() {
   return (
     <html lang='ja'>
       <body>
