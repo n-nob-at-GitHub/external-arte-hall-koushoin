@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   // https://qiita.com/unreadabread/items/920420c24fc49cb3b392
   // Use Static Export when running next build.
   output: 'export',
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
