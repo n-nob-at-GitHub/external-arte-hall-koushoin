@@ -2,12 +2,10 @@
 import React from 'react'
 import Image from 'next/image'
 import {
-  Box,
   Grid,
   Typography
 } from '@mui/material'
 import logo from '@/images/logo.svg'
-import tel from '@/images/tel.svg'
 
 const Header = () => {
   return (

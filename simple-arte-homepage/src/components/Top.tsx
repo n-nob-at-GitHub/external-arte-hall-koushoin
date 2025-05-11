@@ -10,7 +10,6 @@ import hall4 from '@/images/hall4.webp'
 import mv5 from '@/images/mv5.webp'
 
 const Top = () => {
-  const images = [ image00, hall1, hall2, hall3, hall4, mv5 ];
   const itemData = [
     {
       img: image00,
