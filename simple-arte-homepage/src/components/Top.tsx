@@ -13,7 +13,7 @@ const Top = () => {
   const itemData = [
     {
       img: image00,
-      title: '灯籠流し？',
+      title: '行事',
     },
     {
       img: hall1,

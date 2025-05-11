@@ -50,7 +50,7 @@ const Contents = () => {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={ tabIndex } onChange={ handleTabChange } variant='fullWidth' aria-label='basic tabs example'>
+        <Tabs value={ tabIndex } onChange={ handleTabChange } variant='scrollable' scrollButtons='auto' aria-label='basic tabs example'>
           <Tab label='トップ' { ...a11yProps(0) } />
           <Tab label='仏壇' { ...a11yProps(1) } />
           <Tab label='御鈴' { ...a11yProps(2) } />
