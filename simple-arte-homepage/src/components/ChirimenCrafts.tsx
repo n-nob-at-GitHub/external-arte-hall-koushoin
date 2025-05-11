@@ -1,7 +1,6 @@
 'use client'
 import Image from 'next/image'
 import {
-  Box,
   Grid,
   Paper,
 } from '@mui/material'
