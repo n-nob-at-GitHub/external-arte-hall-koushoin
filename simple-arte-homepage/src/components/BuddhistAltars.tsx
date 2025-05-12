@@ -2,12 +2,24 @@
 import {
   ImageList,
   ImageListItem,
-  ImageListItemBar
+  ImageListItemBar,
 } from '@mui/material'
-import image31 from '@/images/31.png'
-import image45 from '@/images/45.png'
-import image64 from '@/images/64.png'
-import image65 from '@/images/65.png'
+import image31_1 from '@/images/31-1.png'
+import image31_2 from '@/images/31-2.png'
+import image31_3 from '@/images/31-3.png'
+import image31_4 from '@/images/31-4.png'
+import image45_1 from '@/images/45-1.png'
+import image45_2 from '@/images/45-2.png'
+import image45_3 from '@/images/45-3.png'
+import image45_4 from '@/images/45-4.png'
+import image64_1 from '@/images/64-1.png'
+import image65_1 from '@/images/65-1.png'
+import image65_2 from '@/images/65-2.png'
+import image65_3 from '@/images/65-3.png'
+import image65_4 from '@/images/65-4.png'
+import image65_5 from '@/images/65-5.png'
+import image65_6 from '@/images/65-6.png'
+import image65_7 from '@/images/65-7.png'
 import image67 from '@/images/67.png'
 import image76 from '@/images/76.png'
 import image77_1 from '@/images/77-1.png'
@@ -27,26 +39,82 @@ const srcset = (image: string, size: number, rows = 1, cols = 1) => {
 const BuddhistAltars = () => {
   const itemData = [
     {
-      img: image31,
-      title: 'ピウマ',
+      img: image31_1,
       rows: 1,
       cols: 1,
     },
     {
-      img: image45,
-      title: '花桜',
+      img: image31_2,
+      rows: 1,
+      cols: 2,
+    },
+    {
+      img: image31_3,
       rows: 1,
       cols: 1,
     },
     {
-      img: image64,
-      title: 'フェンネルⅡ',
+      img: image31_4,
       rows: 1,
       cols: 1,
     },
     {
-      img: image65,
-      title: 'フェンネルⅡ',
+      img: image45_1,
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: image45_2,
+      rows: 1,
+      cols: 2,
+    },
+    {
+      img: image45_3,
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: image45_4,
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: image64_1,
+      rows: 1,
+      cols: 2,
+    },
+    {
+      img: image65_1,
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: image65_2,
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: image65_3,
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: image65_4,
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: image65_5,
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: image65_6,
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: image65_7,
       rows: 1,
       cols: 1,
     },
@@ -88,25 +156,27 @@ const BuddhistAltars = () => {
     }
   ];
   return (
-    <ImageList sx={{ width: 1000, height: 800 }}
-      variant='quilted'
-      cols={ 4 }
-      rowHeight={ 250 }
-      >
-      { itemData.map((item, index) => (
-        <ImageListItem key={ index } cols={ item.cols || 1 } rows={ item.rows || 1 }>
-          <img
-            { ...srcset(item.img.src, 250, item.rows, item.cols) }
-            alt={ item.title }
-            loading='lazy'
-          />
-          <ImageListItemBar
-            title={ item.title }
-            position='below'
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
+    <>
+      <ImageList sx={{ width: 1500, height: 1500 }}
+        variant='quilted'
+        cols={ 5 }
+        rowHeight={ 260 }
+        >
+        { itemData.map((item, index) => (
+          <ImageListItem key={ index } cols={ item.cols || 1 } rows={ item.rows || 1 }>
+            <img
+              { ...srcset(item.img.src, 260, item.rows, item.cols) }
+              alt={ item.title }
+              loading='lazy'
+            />
+            <ImageListItemBar
+              title={ item.title }
+              position='below'
+            />
+          </ImageListItem>
+        ))}
+      </ImageList>
+    </>
   )
 }
 

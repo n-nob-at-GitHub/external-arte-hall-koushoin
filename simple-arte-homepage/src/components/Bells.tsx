@@ -23,21 +23,21 @@ const Bells = () => {
     {
       img: image144_1,
       title: 'ピンク',
-      detail: '24,200円（税込） Φ53×H53',
+      detail: '24,200円 Φ53×H53',
       rows: 1,
       cols: 1,
     },
     {
       img: image144_2,
       title: 'ミント',
-      detail: '24,200円（税込） Φ53×H53',
+      detail: '24,200円 Φ53×H53',
       rows: 1,
       cols: 1,
     },
     {
       img: image144_3,
       title: 'スノー',
-      detail: '24,200円（税込） Φ53×H53',
+      detail: '24,200円 Φ53×H53',
       rows: 1,
       cols: 1,
     }
@@ -45,6 +45,7 @@ const Bells = () => {
   return (
     <>
       <Typography variant='h5'>たまゆら パステル</Typography>
+      <Typography variant='caption'>※金額は、税込表示になります。</Typography>
       <ImageList sx={{ width: 1000, height: 800 }}
         cols={ 4 }
         rowHeight={ 250 }
