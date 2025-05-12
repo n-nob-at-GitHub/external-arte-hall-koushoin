@@ -54,7 +54,7 @@ const Contents = () => {
           <Tab label='トップ' { ...a11yProps(0) } />
           <Tab label='仏壇' { ...a11yProps(1) } />
           <Tab label='御鈴' { ...a11yProps(2) } />
-          <Tab label='提灯' { ...a11yProps(3) } />
+          <Tab label='小提灯' { ...a11yProps(3) } />
           <Tab label='メモリアルフラワー' { ...a11yProps(4) } />
           <Tab label='念珠' { ...a11yProps(5) } />
           <Tab label='ちりめん細工' { ...a11yProps(6) } />
