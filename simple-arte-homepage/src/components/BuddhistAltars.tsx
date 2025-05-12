@@ -2,7 +2,6 @@
 import {
   ImageList,
   ImageListItem,
-  ImageListItemBar,
 } from '@mui/material'
 import image31_1 from '@/images/31-1.png'
 import image31_2 from '@/images/31-2.png'
