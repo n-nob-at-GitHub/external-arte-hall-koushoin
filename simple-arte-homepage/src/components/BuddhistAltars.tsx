@@ -12,6 +12,8 @@ import image67 from '@/images/67.png'
 import image76 from '@/images/76.png'
 import image77_1 from '@/images/77-1.png'
 import image77_2 from '@/images/77-2.png'
+import image83_1 from '@/images/83-1.png'
+import image83_2 from '@/images/83-2.png'
 
 const srcset = (image: string, size: number, rows = 1, cols = 1) => {
   return {
@@ -69,6 +71,18 @@ const BuddhistAltars = () => {
     {
       img: image77_2,
       title: 'ショコラ',
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: image83_1,
+      title: 'プログレ（配置）',
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: image83_2,
+      title: 'プログレ',
       rows: 1,
       cols: 1,
     }
