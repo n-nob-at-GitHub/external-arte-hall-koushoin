@@ -20,12 +20,33 @@ import image65_4 from '@/images/65-4.png'
 import image65_5 from '@/images/65-5.png'
 import image65_6 from '@/images/65-6.png'
 import image65_7 from '@/images/65-7.png'
-import image67 from '@/images/67.png'
-import image76 from '@/images/76.png'
+import image67_1 from '@/images/67-1.png'
+import image67_2 from '@/images/67-2.png'
+import image67_3 from '@/images/67-3.png'
+import image67_4 from '@/images/67-4.png'
+import image67_5 from '@/images/67-5.png'
+import image67_6 from '@/images/67-6.png'
+import image67_7 from '@/images/67-7.png'
+import image76_1 from '@/images/76-1.png'
+import image76_2 from '@/images/76-2.png'
+import image76_3 from '@/images/76-3.png'
+import image76_4 from '@/images/76-4.png'
+import image76_5 from '@/images/76-5.png'
+import image76_6 from '@/images/76-6.png'
+import image76_7 from '@/images/76-7.png'
+import image76_8 from '@/images/76-8.png'
+import image76_9 from '@/images/76-9.png'
+import image76_10 from '@/images/76-10.png'
 import image77_1 from '@/images/77-1.png'
 import image77_2 from '@/images/77-2.png'
+import image77_3 from '@/images/77-3.png'
+import image77_4 from '@/images/77-4.png'
+import image77_5 from '@/images/77-5.png'
 import image83_1 from '@/images/83-1.png'
 import image83_2 from '@/images/83-2.png'
+import image83_3 from '@/images/83-3.png'
+import image83_4 from '@/images/83-4.png'
+import image83_5 from '@/images/83-5.png'
 
 const srcset = (image: string, size: number, rows = 1, cols = 1) => {
   return {
@@ -40,8 +61,6 @@ const BuddhistAltars = () => {
   const itemData = [
     {
       img: image31_1,
-      rows: 1,
-      cols: 1,
     },
     {
       img: image31_2,
@@ -50,18 +69,12 @@ const BuddhistAltars = () => {
     },
     {
       img: image31_3,
-      rows: 1,
-      cols: 1,
     },
     {
       img: image31_4,
-      rows: 1,
-      cols: 1,
     },
     {
       img: image45_1,
-      rows: 1,
-      cols: 1,
     },
     {
       img: image45_2,
@@ -70,13 +83,9 @@ const BuddhistAltars = () => {
     },
     {
       img: image45_3,
-      rows: 1,
-      cols: 1,
     },
     {
       img: image45_4,
-      rows: 1,
-      cols: 1,
     },
     {
       img: image64_1,
@@ -85,74 +94,107 @@ const BuddhistAltars = () => {
     },
     {
       img: image65_1,
-      rows: 1,
-      cols: 1,
     },
     {
       img: image65_2,
-      rows: 1,
-      cols: 1,
     },
     {
       img: image65_3,
-      rows: 1,
-      cols: 1,
     },
     {
       img: image65_4,
-      rows: 1,
-      cols: 1,
     },
     {
       img: image65_5,
-      rows: 1,
-      cols: 1,
     },
     {
       img: image65_6,
-      rows: 1,
-      cols: 1,
     },
     {
       img: image65_7,
-      rows: 1,
-      cols: 1,
     },
     {
-      img: image67,
-      title: 'フォーリーフ',
-      rows: 1,
-      cols: 1,
+      img: image67_1,
     },
     {
-      img: image76,
-      title: 'ガラ',
-      rows: 1,
-      cols: 1,
+      img: image67_2,
+    },
+    {
+      img: image67_3,
+    },
+    {
+      img: image67_4,
+    },
+    {
+      img: image67_5,
+    },
+    {
+      img: image67_6,
+    },
+    {
+      img: image67_7,
+    },
+    {
+      img: image76_1,
+    },
+    {
+      img: image76_2,
+    },
+    {
+      img: image76_3,
+    },
+    {
+      img: image76_4,
+    },
+    {
+      img: image76_5,
+    },
+    {
+      img: image76_6,
+    },
+    {
+      img: image76_7,
+    },
+    {
+      img: image76_8,
+    },
+    {
+      img: image76_9,
+    },
+    {
+      img: image76_10,
     },
     {
       img: image77_1,
-      title: 'ショコラ',
-      rows: 1,
-      cols: 1,
     },
     {
       img: image77_2,
-      title: 'ショコラ',
-      rows: 1,
-      cols: 1,
+    },
+    {
+      img: image77_3,
+    },
+    {
+      img: image77_4,
+    },
+    {
+      img: image77_5,
     },
     {
       img: image83_1,
-      title: 'プログレ（配置）',
       rows: 1,
-      cols: 1,
+      cols: 2,
     },
     {
       img: image83_2,
-      title: 'プログレ',
-      rows: 1,
-      cols: 1,
+    },
+    {
+      img: image83_3,
+    },
+    {
+      img: image83_4,
+    },
+    {
+      img: image83_5,
     }
   ];
   return (
@@ -166,12 +208,8 @@ const BuddhistAltars = () => {
           <ImageListItem key={ index } cols={ item.cols || 1 } rows={ item.rows || 1 }>
             <img
               { ...srcset(item.img.src, 260, item.rows, item.cols) }
-              alt={ item.title }
+              alt={ '' }
               loading='lazy'
-            />
-            <ImageListItemBar
-              title={ item.title }
-              position='below'
             />
           </ImageListItem>
         ))}
