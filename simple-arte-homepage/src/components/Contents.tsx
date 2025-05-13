@@ -5,7 +5,6 @@ import {
   Tab,
   Tabs,
 } from '@mui/material'
-import Top from '@/components/Top'
 import BuddhistAltars from '@/components/BuddhistAltars'
 import Bells from '@/components/Bells'
 import Lanterns from '@/components/Lanterns'
@@ -51,38 +50,34 @@ const Contents = () => {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={ tabIndex } onChange={ handleTabChange } variant='scrollable' scrollButtons='auto' aria-label='basic tabs example'>
-          <Tab label='トップ' { ...a11yProps(0) } />
-          <Tab label='仏壇' { ...a11yProps(1) } />
-          <Tab label='御鈴' { ...a11yProps(2) } />
-          <Tab label='小提灯' { ...a11yProps(3) } />
-          <Tab label='メモリアルフラワー' { ...a11yProps(4) } />
-          <Tab label='念珠' { ...a11yProps(5) } />
-          <Tab label='ちりめん細工' { ...a11yProps(6) } />
-          <Tab label='フォトフレーム' { ...a11yProps(7) } />
+          <Tab label='仏壇' { ...a11yProps(0) } />
+          <Tab label='御鈴' { ...a11yProps(1) } />
+          <Tab label='小提灯' { ...a11yProps(2) } />
+          <Tab label='メモリアルフラワー' { ...a11yProps(3) } />
+          <Tab label='念珠' { ...a11yProps(4) } />
+          <Tab label='ちりめん細工' { ...a11yProps(5) } />
+          <Tab label='フォトフレーム' { ...a11yProps(6) } />
         </Tabs>
       </Box>
       <CustomTabPanel value={ tabIndex } index={ 0 }>
-        <Top />
-      </CustomTabPanel>
-      <CustomTabPanel value={ tabIndex } index={ 1 }>
         <BuddhistAltars />
       </CustomTabPanel>
-      <CustomTabPanel value={ tabIndex } index={ 2 }>
+      <CustomTabPanel value={ tabIndex } index={ 1 }>
         <Bells />
       </CustomTabPanel>
-      <CustomTabPanel value={ tabIndex } index={ 3 }>
+      <CustomTabPanel value={ tabIndex } index={ 2 }>
         <Lanterns />
       </CustomTabPanel>
-      <CustomTabPanel value={ tabIndex } index={ 4 }>
+      <CustomTabPanel value={ tabIndex } index={ 3 }>
         <MemorialFlowers />
       </CustomTabPanel>
-      <CustomTabPanel value={ tabIndex } index={ 5 }>
+      <CustomTabPanel value={ tabIndex } index={ 4 }>
         <Rosaries />
       </CustomTabPanel>
-      <CustomTabPanel value={ tabIndex } index={ 6 }>
+      <CustomTabPanel value={ tabIndex } index={ 5 }>
         <ChirimenCrafts />
       </CustomTabPanel>
-      <CustomTabPanel value={ tabIndex } index={ 7 }>
+      <CustomTabPanel value={ tabIndex } index={ 6 }>
         <PhotoFrames />
       </CustomTabPanel>
     </Box>
