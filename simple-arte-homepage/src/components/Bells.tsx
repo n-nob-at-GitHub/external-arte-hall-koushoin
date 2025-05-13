@@ -8,6 +8,7 @@ import {
 import image144_1 from '@/images/144-1.png'
 import image144_2 from '@/images/144-2.png'
 import image144_3 from '@/images/144-3.png'
+import image144_4 from '@/images/144-4.png'
 
 const srcset = (image: string, size: number, rows = 1, cols = 1) => {
   return {
@@ -23,21 +24,28 @@ const Bells = () => {
     {
       img: image144_1,
       title: 'ピンク',
-      detail: '24,200円 Φ53×H53',
+      detail: '26,500円 Φ53×H53',
       rows: 1,
       cols: 1,
     },
     {
       img: image144_2,
       title: 'ミント',
-      detail: '24,200円 Φ53×H53',
+      detail: '26,500円 Φ53×H53',
       rows: 1,
       cols: 1,
     },
     {
       img: image144_3,
       title: 'スノー',
-      detail: '24,200円 Φ53×H53',
+      detail: '26,500円 Φ53×H53',
+      rows: 1,
+      cols: 1,
+    },
+        {
+      img: image144_4,
+      title: 'たまりんぼう',
+      detail: '',
       rows: 1,
       cols: 1,
     }
