@@ -37,15 +37,6 @@ import image151_16 from '@/images/151-16.webp'
 import image151_17 from '@/images/151-17.webp'
 import image151_18 from '@/images/151-18.webp'
 
-const srcset = (image: string, size: number, rows = 1, cols = 1) => {
-  return {
-    src: `${ image }?w=${ size * cols }&h=${ size * rows }&fit=crop&auto=format`,
-    srcSet: `${ image }?w=${ size * cols }&h=${
-      size * rows
-    }&fit=crop&auto=format&dpr=2 2x`,
-  };
-}
-
 const Rosaries = () => {
   const fioriRings = [
     {
