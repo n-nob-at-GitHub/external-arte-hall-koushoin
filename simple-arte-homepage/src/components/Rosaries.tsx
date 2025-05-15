@@ -169,7 +169,7 @@ const Rosaries = () => {
     <>
       { makeAccordionContent('fiori', 'フィオーリ', fioriData, 3, expanded, handleChange) }
       { makeAccordionContent('fiori-fringe', 'フィオーリフリンジ', fioriFringeData, 3, expanded, handleChange) }
-      { makeAccordionContent('la-veneziana', 'ラ・ヴェネチアーナ', laVenezianaData, 3, expanded, handleChange) }
+      { makeAccordionContent('la-veneziana', 'ラ・ヴェネツィアーナ', laVenezianaData, 3, expanded, handleChange) }
     </>
   )
 }
