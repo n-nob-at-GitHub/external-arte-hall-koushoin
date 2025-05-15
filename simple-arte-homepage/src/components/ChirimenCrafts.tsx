@@ -1,7 +1,6 @@
 'use client'
 import Image, { StaticImageData } from 'next/image'
 import {
-  Grid,
   ImageList,
   ImageListItem,
   Typography,
