@@ -1,5 +1,5 @@
 'use client'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import {
   Box,
   ImageList,
@@ -36,6 +36,14 @@ import image151_15 from '@/images/151-15.webp'
 import image151_16 from '@/images/151-16.webp'
 import image151_17 from '@/images/151-17.webp'
 import image151_18 from '@/images/151-18.webp'
+
+type RosaryItem = {
+  img: StaticImageData
+  title: string
+  cost: string
+  rows?: number
+  cols?: number
+}
 
 const Rosaries = () => {
   const fioriRings = [
@@ -196,7 +204,7 @@ const Rosaries = () => {
     },
   ];
 
-  const renderImageItem = (item: any, index: number) => {
+  const renderImageItem = (item: RosaryItem, index: number) => {
     const cols = item.cols || 1;
     const rows = item.rows || 1;
     const size = 250;
