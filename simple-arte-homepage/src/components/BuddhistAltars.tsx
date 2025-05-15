@@ -1,218 +1,212 @@
 'use client'
+import { useState } from 'react'
 import {
   ImageList,
   ImageListItem,
+  styled,
+  Typography,
 } from '@mui/material'
-import image31_1 from '@/images/31-1.png'
-import image31_2 from '@/images/31-2.png'
-import image31_3 from '@/images/31-3.png'
-import image31_4 from '@/images/31-4.png'
-import image45_1 from '@/images/45-1.png'
-import image45_2 from '@/images/45-2.png'
-import image45_3 from '@/images/45-3.png'
-import image45_4 from '@/images/45-4.png'
-import image64_1 from '@/images/64-1.png'
-import image65_1 from '@/images/65-1.png'
-import image65_2 from '@/images/65-2.png'
-import image65_3 from '@/images/65-3.png'
-import image65_4 from '@/images/65-4.png'
-import image65_5 from '@/images/65-5.png'
-import image65_6 from '@/images/65-6.png'
-import image65_7 from '@/images/65-7.png'
-import image67_1 from '@/images/67-1.png'
-import image67_2 from '@/images/67-2.png'
-import image67_3 from '@/images/67-3.png'
-import image67_4 from '@/images/67-4.png'
-import image67_5 from '@/images/67-5.png'
-import image67_6 from '@/images/67-6.png'
-import image67_7 from '@/images/67-7.png'
-import image76_1 from '@/images/76-1.png'
-import image76_2 from '@/images/76-2.png'
-import image76_3 from '@/images/76-3.png'
-import image76_4 from '@/images/76-4.png'
-import image76_5 from '@/images/76-5.png'
-import image76_6 from '@/images/76-6.png'
-import image76_7 from '@/images/76-7.png'
-import image76_8 from '@/images/76-8.png'
-import image76_9 from '@/images/76-9.png'
-import image76_10 from '@/images/76-10.png'
-import image77_1 from '@/images/77-1.png'
-import image77_2 from '@/images/77-2.png'
-import image77_3 from '@/images/77-3.png'
-import image77_4 from '@/images/77-4.png'
-import image77_5 from '@/images/77-5.png'
-import image83_1 from '@/images/83-1.png'
-import image83_2 from '@/images/83-2.png'
-import image83_3 from '@/images/83-3.png'
-import image83_4 from '@/images/83-4.png'
-import image83_5 from '@/images/83-5.png'
+import MuiAccordion, { AccordionProps } from '@mui/material/Accordion'
+import MuiAccordionSummary, {
+  AccordionSummaryProps,
+  accordionSummaryClasses,
+} from '@mui/material/AccordionSummary'
+import MuiAccordionDetails from '@mui/material/AccordionDetails'
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp'
+import image31 from '@/images/31.webp'
+import image45_1 from '@/images/45-1.webp'
+import image45_2 from '@/images/45-2.webp'
+import image45_3 from '@/images/45-3.webp'
+import image64_1 from '@/images/64-1.webp'
+import image65_1 from '@/images/65-1.webp'
+import image67 from '@/images/67.webp'
+import image76 from '@/images/76.webp'
+import image77_1 from '@/images/77-1.webp'
+import image77_2 from '@/images/77-2.webp'
+import image83_1 from '@/images/83-1.webp'
+import image83_2 from '@/images/83-2.webp'
 
-const srcset = (image: string, size: number, rows = 1, cols = 1) => {
-  return {
-    src: `${ image }?w=${ size * cols }&h=${ size * rows }&fit=crop&auto=format`,
-    srcSet: `${ image }?w=${ size * cols }&h=${
-      size * rows
-    }&fit=crop&auto=format&dpr=2 2x`,
-  };
+// https://mui.com/material-ui/react-accordion/
+const Accordion = styled((props: AccordionProps) => (
+  <MuiAccordion disableGutters elevation={ 0 } square { ...props } />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  '&:not(:last-child)': {
+    borderBottom: 0,
+  },
+  '&::before': {
+    display: 'none',
+  },
+}))
+
+const AccordionSummary = styled((props: AccordionSummaryProps) => (
+  <MuiAccordionSummary
+    expandIcon={ <ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} /> }
+    { ...props }
+  />
+))(({ theme }) => ({
+  backgroundColor: 'rgba(0, 0, 0, .03)',
+  flexDirection: 'row-reverse',
+  [`& .${ accordionSummaryClasses.expandIconWrapper }.${ accordionSummaryClasses.expanded }`]:
+    {
+      transform: 'rotate(90deg)',
+    },
+  [`& .${ accordionSummaryClasses.content }`]: {
+    marginLeft: theme.spacing(1),
+  },
+  ...theme.applyStyles('dark', {
+    backgroundColor: 'rgba(255, 255, 255, .05)',
+  }),
+}))
+
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(2),
+  borderTop: '1px solid rgba(0, 0, 0, .125)',
+}))
+
+const makeImageListContent = (data: any, maxCols = 1) => {
+  return <ImageList 
+    cols={ maxCols }
+    sx={{
+      '& .MuiImageListItem-root img': {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+      },
+    }}>
+    { data.map((item: any, index: any) => (
+      <ImageListItem 
+        key={ index }
+        cols={ item.cols } 
+        rows={ item.rows } 
+        sx={{
+          aspectRatio: `${ item.cols } / ${ item.rows }`,
+          border: 1, 
+          borderColor: 'grey.200', 
+          p: 2
+        }}>
+        <img
+          src={ item.img.src }
+          alt={ item.title }
+          loading='lazy'
+        />
+      </ImageListItem>
+    ))}
+  </ImageList>;
+}
+
+const makeAccordionContent = (key: string, title: string, data: any, maxCols = 1, expanded: string | boolean, handleChange: any) => {
+  return <Accordion expanded={ expanded === key } onChange={ handleChange(key) }>
+    <AccordionSummary aria-controls={ `${ key }-content` } id='piuma-header'>
+      <Typography component='span'>{ title }</Typography>
+    </AccordionSummary>
+    <AccordionDetails>
+      { makeImageListContent(data, maxCols) }
+    </AccordionDetails>
+  </Accordion>;
 }
 
 const BuddhistAltars = () => {
-  const itemData = [
+  const [ expanded, setExpanded ] = useState<string | false>('');
+  const handleChange =
+  (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
+    setExpanded(newExpanded ? panel : false);
+  }
+  const piumaData = [
     {
-      img: image31_1,
+      img: image31,
+      title: 'Piuma',
+      rows: 4,
+      cols: 5,
     },
-    {
-      img: image31_2,
-      rows: 1,
-      cols: 2,
-    },
-    {
-      img: image31_3,
-    },
-    {
-      img: image31_4,
-    },
+  ];
+  const hanazakuraData = [
     {
       img: image45_1,
+      title: 'Hanazakura_1',
+      rows: 1,
+      cols: 2,
     },
     {
       img: image45_2,
+      title: 'Hanazakura_2',
       rows: 1,
-      cols: 2,
+      cols: 1,
     },
     {
       img: image45_3,
+      title: 'Hanazakura_3',
+      rows: 1,
+      cols: 1,
     },
-    {
-      img: image45_4,
-    },
+  ];
+  const fennel2Data = [
     {
       img: image64_1,
+      title: 'Fennel2_1',
       rows: 1,
       cols: 2,
     },
     {
       img: image65_1,
+      title: 'Fennel2_2',
+      rows: 2,
+      cols: 3,
     },
+  ];
+  const fourLeafData = [
     {
-      img: image65_2,
+      img: image67,
+      title: 'FourLeaf',
+      rows: 3,
+      cols: 2,
     },
+  ];
+  const galaData = [
     {
-      img: image65_3,
+      img: image76,
+      title: 'Gala',
+      rows: 3,
+      cols: 2,
     },
-    {
-      img: image65_4,
-    },
-    {
-      img: image65_5,
-    },
-    {
-      img: image65_6,
-    },
-    {
-      img: image65_7,
-    },
-    {
-      img: image67_1,
-    },
-    {
-      img: image67_2,
-    },
-    {
-      img: image67_3,
-    },
-    {
-      img: image67_4,
-    },
-    {
-      img: image67_5,
-    },
-    {
-      img: image67_6,
-    },
-    {
-      img: image67_7,
-    },
-    {
-      img: image76_1,
-    },
-    {
-      img: image76_2,
-    },
-    {
-      img: image76_3,
-    },
-    {
-      img: image76_4,
-    },
-    {
-      img: image76_5,
-    },
-    {
-      img: image76_6,
-    },
-    {
-      img: image76_7,
-    },
-    {
-      img: image76_8,
-    },
-    {
-      img: image76_9,
-    },
-    {
-      img: image76_10,
-    },
+  ];
+  const chocolatData = [
     {
       img: image77_1,
+      title: 'Chocolat_1',
+      rows: 2,
+      cols: 3,
     },
     {
       img: image77_2,
+      title: 'Chocolat_2',
+      rows: 3,
+      cols: 3,
     },
-    {
-      img: image77_3,
-    },
-    {
-      img: image77_4,
-    },
-    {
-      img: image77_5,
-    },
+  ];
+  const progresData = [
     {
       img: image83_1,
+      title: 'Progres_1',
       rows: 1,
       cols: 2,
     },
     {
       img: image83_2,
+      title: 'Progres_2',
+      rows: 2,
+      cols: 2,
     },
-    {
-      img: image83_3,
-    },
-    {
-      img: image83_4,
-    },
-    {
-      img: image83_5,
-    }
   ];
   return (
     <>
-      <ImageList sx={{ width: 1500, height: 1500 }}
-        variant='quilted'
-        cols={ 5 }
-        rowHeight={ 260 }
-        >
-        { itemData.map((item, index) => (
-          <ImageListItem key={ index } cols={ item.cols || 1 } rows={ item.rows || 1 }>
-            <img
-              { ...srcset(item.img.src, 260, item.rows, item.cols) }
-              alt={ '' }
-              loading='lazy'
-            />
-          </ImageListItem>
-        ))}
-      </ImageList>
+      { makeAccordionContent('piuma', 'ピウマ', piumaData, 5, expanded, handleChange) }
+      { makeAccordionContent('hanazakura', '花桜', hanazakuraData, 2, expanded, handleChange) }
+      { makeAccordionContent('fennel2', 'フェンネルⅡ', fennel2Data, 2, expanded, handleChange) }
+      { makeAccordionContent('four-leaf', 'フォーリーフ', fourLeafData, 2, expanded, handleChange) }
+      { makeAccordionContent('gala', 'ガラ', galaData, 2, expanded, handleChange) }
+      { makeAccordionContent('chocolat', 'ショコラ', chocolatData, 3, expanded, handleChange) }
+      { makeAccordionContent('progres', 'プログレ', progresData, 2, expanded, handleChange) }
     </>
   )
 }
