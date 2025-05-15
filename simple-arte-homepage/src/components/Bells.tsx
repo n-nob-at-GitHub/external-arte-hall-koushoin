@@ -1,17 +1,64 @@
 'use client'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import {
+  Box,
   ImageList,
-  ImageListItem,
-  ImageListItemBar,
-  Typography
+  Typography,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material'
 import image144_1 from '@/images/144-1.png'
 import image144_2 from '@/images/144-2.png'
 import image144_3 from '@/images/144-3.png'
 import image144_4 from '@/images/144-4.png'
 
+type ImageItem = {
+  img: StaticImageData
+  title: string
+  detail: string
+  cols?: number
+  rows?: number
+}
+
+const makeImageListContent = (data: ImageItem[], maxCols: number) => {
+  return <ImageList cols={ maxCols }>
+    { data.map((item, index) => (
+      <Box
+        key={ index }
+        sx={{
+          border: 1,
+          borderColor: 'grey.200',
+          p: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Image
+          src={ item.img.src }
+          alt={ item.title }
+          width={ 250 }
+          height={ 250 }
+          style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+        />
+        <Typography variant='subtitle1' component='div'>
+          { item.title }
+        </Typography>
+        <Typography variant='body2' color='text.secondary'>
+          { item.detail }
+        </Typography>
+      </Box>
+    ))}
+  </ImageList>;
+}
+
 const Bells = () => {
+  const theme = useTheme()
+  const isXs = useMediaQuery(theme.breakpoints.up('sm'))
+  const isSm = useMediaQuery(theme.breakpoints.up('md'))
+  const isMd = useMediaQuery(theme.breakpoints.up('lg'))
+  const maxCols = 1 + Number(isXs) + Number(isSm) + Number(isMd)
+
   const itemData = [
     {
       img: image144_1,
@@ -46,34 +93,7 @@ const Bells = () => {
     <>
       <Typography variant='h5'>たまゆら パステル</Typography>
       <Typography variant='caption'>※金額は、税込表示になります。</Typography>
-      <ImageList sx={{ width: 1000, height: 800 }}
-        cols={ 4 }
-        rowHeight={ 250 }
-        >
-        { itemData.map((item, index) => (
-          <ImageListItem 
-            key={ index } 
-            cols={ item.cols || 1 } 
-            rows={ item.rows || 1 }
-            sx={{
-              position: 'relative'
-            }}>
-            <Image
-              src={ item.img.src }
-              alt={ item.title }
-              width={ 250 * (item.cols || 1) }
-              height={ 250 * (item.rows || 1) }
-              style={{ objectFit: 'cover' }}
-              loading='lazy'
-            />
-            <ImageListItemBar
-              title={ item.title }
-              subtitle={ item.detail }
-              position='below'
-            />
-          </ImageListItem>
-        ))}
-      </ImageList>
+      { makeImageListContent(itemData, maxCols) }
     </>
   )
 }
