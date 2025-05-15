@@ -57,7 +57,7 @@ const Bells = () => {
   const isXs = useMediaQuery(theme.breakpoints.up('sm'))
   const isSm = useMediaQuery(theme.breakpoints.up('md'))
   const isMd = useMediaQuery(theme.breakpoints.up('lg'))
-  const maxCols = 1 + Number(isXs) + Number(isSm) + Number(isMd)
+  const maxCols = 2 + Number(isXs) + Number(isSm) + Number(isMd)
 
   const itemData = [
     {
