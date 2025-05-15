@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Image from 'next/image'
 import {
   ImageList,
   ImageListItem,
@@ -68,10 +69,8 @@ const makeImageListContent = (data: any, maxCols = 1) => {
   return <ImageList 
     cols={ maxCols }
     sx={{
-      '& .MuiImageListItem-root img': {
-        width: '100%',
-        height: '100%',
-        objectFit: 'cover',
+      '& .MuiImageListItem-root': {
+        position: 'relative',
       },
     }}>
     { data.map((item: any, index: any) => (
@@ -83,12 +82,15 @@ const makeImageListContent = (data: any, maxCols = 1) => {
           aspectRatio: `${ item.cols } / ${ item.rows }`,
           border: 1, 
           borderColor: 'grey.200', 
-          p: 2
+          p: 2,
+          position: 'relative',
         }}>
-        <img
+        <Image
           src={ item.img.src }
           alt={ item.title }
           loading='lazy'
+          fill
+          style={{ objectFit: 'cover' }}
         />
       </ImageListItem>
     ))}

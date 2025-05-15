@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import {
   Box,
   ImageList,
@@ -203,76 +204,48 @@ const Rosaries = () => {
       cost: '6,050円',
     },
   ];
+
+  const renderImageItem = (item: any, index: number) => {
+    const cols = item.cols || 1;
+    const rows = item.rows || 1;
+    const size = 250;
+    return (
+      <Box key={ index } sx={{ border: 1, borderColor: 'grey.200', p: 2 }}>
+        <ImageListItem cols={ cols } rows={ rows } sx={{ overflow: 'hidden' }}>
+          <Image
+            src={ item.img.src }
+            alt={ item.title }
+            width={ size * cols }
+            height={ size * rows }
+            style={{ objectFit: 'cover' }}
+            loading='lazy'
+          />
+          <ImageListItemBar
+            title={ item.title }
+            subtitle={ item.cost }
+            position='below'
+          />
+        </ImageListItem>
+      </Box>
+    );
+  };
+
   return (
     <>
       <Typography variant='h5'>フィオーリ リング</Typography>
       <Typography variant='caption'>※金額は、税込表示になります。</Typography>
-      <ImageList sx={{ width: 1000, height: 1000 }}
-        cols={ 4 }
-        rowHeight={ 250 }
-        >
-        { fioriRings.map((item, index) => (
-          <Box key={ index } sx={{ border: 1, borderColor: 'grey.200', p: 2 }}>
-            <ImageListItem key={ index } cols={ item.cols || 1 } rows={ item.rows || 1 }>
-              <img
-                { ...srcset(item.img.src, 250, item.rows, item.cols) }
-                alt={ item.title }
-                loading='lazy'
-              />
-              <ImageListItemBar
-                title={ item.title }
-                subtitle={ item.cost }
-                position='below'
-              />
-            </ImageListItem>
-          </Box>
-        ))}
+      <ImageList sx={{ width: 1000, height: 1000 }} cols={ 4 } rowHeight={ 250 }>
+        { fioriRings.map(renderImageItem) }
       </ImageList>
       <Typography variant='h5'>フィオーリ フリンジ</Typography>
       <Typography variant='caption'>※金額は、税込表示になります。</Typography>
-      <ImageList sx={{ width: 1000, height: 500 }}
-        cols={ 1 }
-        rowHeight={ 250 }
-        >
-        { fioriFringes.map((item, index) => (
-          <Box key={ index } sx={{ border: 1, borderColor: 'grey.200', p: 2 }}>
-            <ImageListItem key={ index } cols={ item.cols || 1 } rows={ item.rows || 1 }>
-              <img
-                { ...srcset(item.img.src, 250, item.rows, item.cols) }
-                alt={ item.title }
-                loading='lazy'
-              />
-              <ImageListItemBar
-                title={ item.title }
-                subtitle={ item.cost }
-                position='below'
-              />
-            </ImageListItem>
-          </Box>
-        ))}
+      <ImageList sx={{ width: 1000, height: 500 }} cols={ 1 } rowHeight={ 250 }>
+        { fioriFringes.map(renderImageItem) }
       </ImageList>
       <Typography variant='h5'>ラ・ヴェネツィアーナ</Typography>
       <Typography variant='caption'>※金額は、税込表示になります。</Typography>
-      <ImageList sx={{ width: 1000, height: 1500 }}
-        cols={ 4 }
-        rowHeight={ 250 }
-        >
-        { laVeneziaRings.map((item, index) => (
-          <Box key={ index } sx={{ border: 1, borderColor: 'grey.200', p: 2 }}>
-            <ImageListItem key={ index } cols={ item.cols || 1 } rows={ item.rows || 1 }>
-              <img
-                { ...srcset(item.img.src, 250, item.rows, item.cols) }
-                alt={ item.title }
-                loading='lazy'
-              />
-              <ImageListItemBar
-                title={ item.title }
-                subtitle={ item.cost }
-                position='below'
-              />
-            </ImageListItem>
-          </Box>
-        ))}
+      <ImageList sx={{ width: 1000, height: 1500 }} cols={ 4 } rowHeight={ 250 }>
+        { laVeneziaRings.map(renderImageItem) }
       </ImageList>
     </>
   )
