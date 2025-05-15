@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import {
   ImageList,
   ImageListItem,
@@ -26,6 +26,13 @@ import image77_1 from '@/images/77-1.webp'
 import image77_2 from '@/images/77-2.webp'
 import image83_1 from '@/images/83-1.webp'
 import image83_2 from '@/images/83-2.webp'
+
+type ImageItem = {
+  img: StaticImageData
+  title: string
+  cols?: number
+  rows?: number
+}
 
 // https://mui.com/material-ui/react-accordion/
 const Accordion = styled((props: AccordionProps) => (
@@ -65,7 +72,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }))
 
-const makeImageListContent = (data: any, maxCols = 1) => {
+const makeImageListContent = (data: ImageItem[], maxCols = 1) => {
   return <ImageList 
     cols={ maxCols }
     sx={{
@@ -73,7 +80,7 @@ const makeImageListContent = (data: any, maxCols = 1) => {
         position: 'relative',
       },
     }}>
-    { data.map((item: any, index: any) => (
+    { data.map((item, index) => (
       <ImageListItem 
         key={ index }
         cols={ item.cols } 
@@ -97,7 +104,14 @@ const makeImageListContent = (data: any, maxCols = 1) => {
   </ImageList>;
 }
 
-const makeAccordionContent = (key: string, title: string, data: any, maxCols = 1, expanded: string | boolean, handleChange: any) => {
+const makeAccordionContent = (
+  key: string, 
+  title: string, 
+  data: ImageItem[], 
+  maxCols = 1, 
+  expanded: string | boolean, 
+  handleChange: (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => void
+) => {
   return <Accordion expanded={ expanded === key } onChange={ handleChange(key) }>
     <AccordionSummary aria-controls={ `${ key }-content` } id='piuma-header'>
       <Typography component='span'>{ title }</Typography>
