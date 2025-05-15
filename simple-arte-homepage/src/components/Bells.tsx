@@ -7,10 +7,10 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material'
-import image144_1 from '@/images/144-1.png'
-import image144_2 from '@/images/144-2.png'
-import image144_3 from '@/images/144-3.png'
-import image144_4 from '@/images/144-4.png'
+import image144_1 from '@/images/144-1.webp'
+import image144_2 from '@/images/144-2.webp'
+import image144_3 from '@/images/144-3.webp'
+import image144_4 from '@/images/144-4.webp'
 
 type ImageItem = {
   img: StaticImageData
