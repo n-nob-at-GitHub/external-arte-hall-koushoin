@@ -113,7 +113,7 @@ const makeAccordionContent = (
   handleChange: (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => void
 ) => {
   return <Accordion expanded={ expanded === key } onChange={ handleChange(key) }>
-    <AccordionSummary aria-controls={ `${ key }-content` } id='piuma-header'>
+    <AccordionSummary aria-controls={ `${ key }-content` } id={`${ key }-header`}>
       <Typography component='span'>{ title }</Typography>
     </AccordionSummary>
     <AccordionDetails>

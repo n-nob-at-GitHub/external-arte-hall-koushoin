@@ -16,6 +16,7 @@ import MuiAccordionSummary, {
 } from '@mui/material/AccordionSummary'
 import MuiAccordionDetails from '@mui/material/AccordionDetails'
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp'
+// When viewed on a smartphone, the left and right sides of the circular image were cut off, so I resized it from 500px to 450px.
 import image200 from '@/images/200.webp'
 
 type ImageItem = {
@@ -111,7 +112,7 @@ const makeAccordionContent = (
   handleChange: (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => void
 ) => {
   return <Accordion expanded={ expanded === key } onChange={ handleChange(key) }>
-    <AccordionSummary aria-controls={ `${ key }-content` } id='piuma-header'>
+    <AccordionSummary aria-controls={ `${ key }-content` } id={`${ key }-header`}>
       <Typography component='span'>{ title }</Typography>
     </AccordionSummary>
     <AccordionDetails>
