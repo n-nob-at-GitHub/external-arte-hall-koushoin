@@ -12,6 +12,7 @@ import MemorialFlowers from '@/components/MemorialFlowers'
 import Rosaries from '@/components/Rosaries'
 import ChirimenCrafts from '@/components/ChirimenCrafts'
 import PhotoFrames from '@/components/PhotoFrames'
+import OtherBuddhistAltarImplements from '@/components/OtherBuddhistAltarImplements'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -57,6 +58,7 @@ const Contents = () => {
           <Tab label='念珠' { ...a11yProps(4) } />
           <Tab label='ちりめん細工' { ...a11yProps(5) } />
           <Tab label='フォトフレーム' { ...a11yProps(6) } />
+          <Tab label='その他の仏具' { ...a11yProps(7) } />
         </Tabs>
       </Box>
       <CustomTabPanel value={ tabIndex } index={ 0 }>
@@ -79,6 +81,9 @@ const Contents = () => {
       </CustomTabPanel>
       <CustomTabPanel value={ tabIndex } index={ 6 }>
         <PhotoFrames />
+      </CustomTabPanel>
+      <CustomTabPanel value={ tabIndex } index={ 7 }>
+        <OtherBuddhistAltarImplements />
       </CustomTabPanel>
     </Box>
   )
